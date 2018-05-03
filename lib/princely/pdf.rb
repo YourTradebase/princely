@@ -102,6 +102,7 @@ module Princely
       # as input and output
       path << " --media=#{media}" if media
       path << " --silent - -o #{output_file}"
+      path << " 2> /dev/null"
       path << " >> '#{log_file}' 2>> '#{log_file}'" if options[:output_to_log_file]
 
       log_command path if options[:log_command]
