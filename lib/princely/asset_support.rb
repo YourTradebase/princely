@@ -18,7 +18,7 @@ module Princely
       asset = asset.gsub(%r'/assets/', '')
 
       if Rails.application.assets
-        Rails.application.assets.find_asset(asset).try(:pathname) || asset
+        Rails.application.assets.find_asset(asset).try(:filename) || asset
       else
         path = view_context.asset_path(asset.concat('.css')) # asset filename, inc. hash, with relative path
           .scan(%r"#{Regexp.escape(asset.split('.').first)}[-0-9a-f]*?\.[a-z]+?$")
